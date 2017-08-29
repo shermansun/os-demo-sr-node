@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 // ------------------ METHODS --------------------------------------------------
 
 app.all('/', function (req, res) {
-  var port = server.address().port;
+  
   var msg = 'NodeJS SR Service ' + port;
   res.status(200);
   res.end(msg);
@@ -52,7 +52,6 @@ eureka.start(function(error){
 
 // ------------------ Server Config --------------------------------------------
 var server = app.listen(port, function () {
-  var host = server.address().address;
-  var port = server.address().port;
-  console.log('Listening at http://%s:%s', host, port);
+  
+  console.log('Listening at http://%s:%s', ip, port);
 });
