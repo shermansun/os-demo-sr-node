@@ -8,7 +8,7 @@
     "lodash": "^4.6.1"
   },
   "scripts": {
-    "service": "node service.js"
+    "start": "node service.js"
   },
   "devDependencies": {
     "gulp": "^3.9.1"
