@@ -20,7 +20,8 @@ app.all('/', function (req, res) {
   client.get("http://eureka-os-poc.13.70.146.253.nip.io/eureka/apps/",
             function(data, response){
               
-              var msg = 'NodeJS SR Service ' + JSON.stringify(response);
+              console.log(response);
+              var msg = 'NodeJS SR Service ' + response;
 
               res.status(200);
               res.end(msg);
