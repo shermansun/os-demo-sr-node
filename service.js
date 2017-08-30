@@ -4,7 +4,7 @@ var Client = require('node-rest-client').Client;
 var client = new Client();
 
 var port = process.env.OS_DEMO_SR_NODE_SERVICE_PORT || 8080,
-    ip   = process.env.OS_DEMO_SR_NODE_SERVICE_HOST || '0.0.0.0';
+    ip   = process.env.OS_DEMO_SR_NODE_SERVICE_HOST || '127.0.0.1';
 
 var hostname = process.env.HOSTNAME;
 
@@ -20,11 +20,12 @@ app.all('/', function (req, res) {
   client.get("http://os-demo-complex-node-oc-demo-complex-node.13.70.146.253.nip.io/tasks",
             function(data, response){
               message = response;
-            });
-  var msg = 'NodeJS SR Service ' + message;
+              var msg = 'NodeJS SR Service ' + message;
 
-  res.status(200);
-  res.end(msg);
+              res.status(200);
+              res.end(msg);
+            });
+  
 });
 
 // ------------------ Eureka Config --------------------------------------------
