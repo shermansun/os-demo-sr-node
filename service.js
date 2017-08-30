@@ -15,12 +15,12 @@ app.use(bodyParser.json());
 // ------------------ METHODS --------------------------------------------------
 
 app.all('/', function (req, res) {
-  
+  console.log('GET service');
   var message = '';
   client.get("http://eureka-os-poc.13.70.146.253.nip.io/eureka/apps/",
             function(data, response){
-              message = response;
-              var msg = 'NodeJS SR Service ' + message;
+              
+              var msg = 'NodeJS SR Service ' + JSON.stringify(response);
 
               res.status(200);
               res.end(msg);
@@ -28,11 +28,14 @@ app.all('/', function (req, res) {
   
 });
 
-app.all('/eureka', function(res, res){
+app.all('/eureka', function(req, res){
 
+  console.log('Connecting to eureka');
   eureka.logger.level('debug');
   eureka.start(function(error){
     console.log(error || 'complete');
+    res.status(200);
+    res.end(msg);
   });
 
 });
