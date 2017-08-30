@@ -1,5 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+var Client = require('node-rest-client').Client;
+var client = new Client();
 
 var port = process.env.OS_DEMO_SR_NODE_SERVICE_PORT || 8080,
     ip   = process.env.OS_DEMO_SR_NODE_SERVICE_HOST || '0.0.0.0';
@@ -14,7 +16,13 @@ app.use(bodyParser.json());
 
 app.all('/', function (req, res) {
   
-  var msg = 'NodeJS SR Service ' + port;
+  var res = '';
+  client.get("http://os-demo-complex-node-oc-demo-complex-node.13.70.146.253.nip.io/tasks",
+            function(data, response){
+              res = response;
+            });
+  var msg = 'NodeJS SR Service ' + response;
+
   res.status(200);
   res.end(msg);
 })
@@ -36,12 +44,12 @@ const eureka = new Eureka({
     vipAddress: 'localhost',
     dataCenterInfo: {
       '@class': 'com.netflix.appinfo.InstanceInfo$DefaultDataCenterInfo',
-      name: 'MyOwn',
+      name: 'MyOwn',8761
     }
   },
   eureka: {
     host: 'eureka-os-poc.13.70.146.253.nip.io',
-    port: 8761,
+    port: ,
     servicePath: '/eureka/apps/'
   }
 });
