@@ -21,11 +21,11 @@ app.all('/', function (req, res) {
             function(data, response){
               res = response;
             });
-  var msg = 'NodeJS SR Service ' + response;
+  var msg = 'NodeJS SR Service ' + res;
 
   res.status(200);
   res.end(msg);
-})
+});
 
 // ------------------ Eureka Config --------------------------------------------
 
