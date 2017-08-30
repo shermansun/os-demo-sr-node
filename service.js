@@ -16,12 +16,12 @@ app.use(bodyParser.json());
 
 app.all('/', function (req, res) {
   
-  var res = '';
+  var message = '';
   client.get("http://os-demo-complex-node-oc-demo-complex-node.13.70.146.253.nip.io/tasks",
             function(data, response){
-              res = response;
+              message = response;
             });
-  var msg = 'NodeJS SR Service ' + res;
+  var msg = 'NodeJS SR Service ' + message;
 
   res.status(200);
   res.end(msg);
