@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 app.all('/', function (req, res) {
   
   var message = '';
-  client.get("http://os-demo-complex-node-oc-demo-complex-node.13.70.146.253.nip.io/tasks",
+  client.get("http://eureka-os-poc.13.70.146.253.nip.io/eureka/apps/",
             function(data, response){
               message = response;
               var msg = 'NodeJS SR Service ' + message;
@@ -26,6 +26,15 @@ app.all('/', function (req, res) {
               res.end(msg);
             });
   
+});
+
+app.all('/eureka', function(res, res){
+
+  eureka.logger.level('debug');
+  eureka.start(function(error){
+    console.log(error || 'complete');
+  });
+
 });
 
 // ------------------ Eureka Config --------------------------------------------
@@ -49,10 +58,6 @@ const eureka = new Eureka({
     port: 8761,
     servicePath: '/eureka/apps/'
   }
-});
-eureka.logger.level('debug');
-eureka.start(function(error){
-  console.log(error || 'complete');
 });
 
 // ------------------ Server Config --------------------------------------------
