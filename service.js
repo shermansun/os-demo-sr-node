@@ -36,20 +36,16 @@ const eureka = new Eureka({
     app: 'os-demo-sr-node',
     hostName: hostname,
     ipAddr: ip,
-    statusPageUrl: 'http://' + hostname + ':' + port,
-    port: {
-      '$': 8080,
-      '@enabled': 'true',
-    },
-    vipAddress: 'localhost',
+    port: 8080,
+    vipAddress: 'eureka-os-poc.13.70.146.253.nip.io',
     dataCenterInfo: {
       '@class': 'com.netflix.appinfo.InstanceInfo$DefaultDataCenterInfo',
-      name: 'MyOwn',8761
+      name: 'MyOwn',
     }
   },
   eureka: {
     host: 'eureka-os-poc.13.70.146.253.nip.io',
-    port: ,
+    port: 8761,
     servicePath: '/eureka/apps/'
   }
 });
