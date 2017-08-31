@@ -37,7 +37,7 @@ app.all('/eureka', function(req, res){
   eureka.start(function(error){
     console.log(error || 'complete');
     res.status(200);
-    res.end(msg);
+    res.end(erro || 'complete');
   });
 
 });
