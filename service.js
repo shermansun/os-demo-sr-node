@@ -30,15 +30,26 @@ app.all('/', function (req, res) {
   
 });
 
-app.all('/eureka', function(req, res){
+app.all('/eureka/register', function(req, res){
 
-  console.log('Connecting to eureka');
-  eureka.logger.level('debug');
+  console.log('Register to eureka');
+  
   eureka.start(function(error){
     console.log(error || 'complete');
     res.status(200);
-    res.end(erro || 'complete');
+    res.end(error || 'Registration complete');
   });
+
+});
+
+
+app.all('/euraka/consume', function(req, res){
+
+  console.log('Consume service')
+  var intances = eureka.getInstancesByAppId('service');
+  console.log(intances);
+  res.status(200);
+  res.end('Complete');
 
 });
 
@@ -64,6 +75,8 @@ const eureka = new Eureka({
     servicePath: '/eureka/apps/'
   }
 });
+
+eureka.logger.level('debug');
 
 // ------------------ Server Config --------------------------------------------
 var server = app.listen(port, function () {
