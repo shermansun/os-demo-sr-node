@@ -8,6 +8,8 @@ var port = process.env.OS_DEMO_SR_NODE_SERVICE_PORT || 8080,
 
 var hostname = process.env.HOSTNAME;
 
+process.env['NODE_DEBUG'] = 'request';
+
 var app = express();
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
