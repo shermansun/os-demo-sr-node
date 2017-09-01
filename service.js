@@ -85,7 +85,7 @@ const eureka = new Eureka({
   eureka: {
     host: 'demo-eureka-server-registry.13.70.146.253.nip.io',
     port: 80,
-    servicePath: '/eureka/apps/'
+    servicePath: '/eureka/'
   }
 });
 
