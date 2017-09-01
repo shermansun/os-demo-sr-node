@@ -52,14 +52,17 @@ app.all('/eureka/consume/:appid', function(req, res){
 
   if (instance){
     var service_host = instance.hostName;
-    client.get(service_host, function(){
+    client.get(service_host, function(request, response){
 
+      res.status(200);
+      res.end('Comsume completed: ' + respnose);
     });
 
   }
-  
-  res.status(200);
-  res.end('Complete');
+  else{
+    res.status(400);
+    res.end('Service not found');
+  }
 
 });
 
