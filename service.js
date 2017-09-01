@@ -73,7 +73,7 @@ const Eureka = require('eureka-js-client').Eureka;
 const eureka = new Eureka({
   instance: {
     app: 'os-demo-sr-node',
-    hostName: 'http://os-demo-sr-node-os-demo-sr-node.13.70.146.253.nip.io/',
+    hostName: 'os-demo-sr-node-os-demo-sr-node.13.70.146.253.nip.io',
     ipAddr: '13.70.146.253',
     port: 80,
     vipAddress: ip,
@@ -83,8 +83,8 @@ const eureka = new Eureka({
     }
   },
   eureka: {
-    host: 'eureka-os-poc.13.70.146.253.nip.io',
-    port: 8761,
+    host: 'demo-eureka-server-registry.13.70.146.253.nip.io',
+    port: 8080,
     servicePath: '/eureka/apps/'
   }
 });
