@@ -172,7 +172,7 @@
             "type": "ConfigChange"
           }
         ],
-        "replicas": 6,
+        "replicas": 1,
         "selector": {
           "name": "${NAME}"
         },

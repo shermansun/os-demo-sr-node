@@ -43,11 +43,21 @@ app.all('/eureka/register', function(req, res){
 });
 
 
-app.all('/euraka/consume', function(req, res){
+app.all('/eureka/consume/:appid', function(req, res){
 
-  console.log('Consume service')
-  var intances = eureka.getInstancesByAppId('service');
-  console.log(intances);
+  var appId = req.params.appid;
+  console.log('Consume service: ' + appId);
+  var instance = eureka.getInstancesByAppId(appId);
+  console.log(instance);
+
+  if (instance){
+    var service_host = instance.hostName;
+    client.get(service_host, function(){
+
+    });
+
+  }
+  
   res.status(200);
   res.end('Complete');
 
