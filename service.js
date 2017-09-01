@@ -73,19 +73,17 @@ const Eureka = require('eureka-js-client').Eureka;
 const eureka = new Eureka({
   instance: {
     app: 'os-demo-sr-node',
-    hostName: 'os-demo-sr-node-os-demo-sr-node.13.70.146.253.nip.io',
-    ipAddr: '13.70.146.253',
-    port: 80,
-    vipAddress: ip,
+    hostName: 'localhost',
+    ipAddr: '127.0.0.1',
+    port: 8080,
+    vipAddress: 'os-demo-sr-node-os-demo-sr-node.13.70.146.253.nip.io',
     dataCenterInfo: {
-      '@class': 'com.netflix.appinfo.InstanceInfo$DefaultDataCenterInfo',
       name: 'MyOwn',
-    }
+    },
   },
   eureka: {
     host: 'demo-eureka-server-registry.13.70.146.253.nip.io',
-    port: 80,
-    servicePath: '/eureka/'
+    port: 80
   }
 });
 
