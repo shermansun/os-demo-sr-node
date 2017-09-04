@@ -51,7 +51,7 @@ app.all('/eureka/consume/:appid', function(req, res){
     client.get(service_host, function(request, response){
 
       res.status(200);
-      res.end('Comsume completed, obtain response: ' + respnose);
+      res.end('Comsume completed, obtain response: ' + response);
     });
 
   }
