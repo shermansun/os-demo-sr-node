@@ -215,6 +215,10 @@
                     }
                 },
                 "env": [
+                  {
+                    "name": "APPNAME",
+                    "value": "${NAME}"
+                  }
                 ],
                 "resources": {
                     "limits": {

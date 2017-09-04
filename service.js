@@ -7,7 +7,7 @@ var port = process.env.OS_DEMO_SR_NODE_SERVICE_PORT || 8080,
     ip   = process.env.OS_DEMO_SR_NODE_SERVICE_HOST || '127.0.0.1';
 
 var hostname = process.env.HOSTNAME;
-var appName = process.env.OPENSHIFT_BUILD_NAMESPACE;
+var appName = process.env.APPNAME;
 var appUrl = 'http://' + appName + '-os-demo-sr-node.13.70.146.253.nip.io';
 
 process.env['NODE_DEBUG'] = 'request';
